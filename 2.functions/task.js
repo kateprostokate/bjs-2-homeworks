@@ -15,23 +15,38 @@ function getArrayParams(...arr) {
   return { min: min, max: max, avg: avg };
 }
 
-
 function summElementsWorker(...arr) {
-
+  return arr.length === 0 ? 0 : arr.reduce((acc, val) => acc + val, 0);
 }
 
 function differenceMaxMinWorker(...arr) {
-
+  return arr.length === 0 ? 0 : Math.max(...arr) - Math.min(...arr);
 }
 
 function differenceEvenOddWorker(...arr) {
-
+  if (arr.length === 0) return 0;
+  let sumEvenElement = 0;
+  let sumOddElement = 0;
+  for (let num of arr) {
+    if (num % 2 === 0) {
+      sumEvenElement += num;
+    } else {
+      sumOddElement += num;
+    }
+  }
+  return sumEvenElement - sumOddElement;
 }
 
 function averageEvenElementsWorker(...arr) {
-
+  if (arr.length === 0) return 0;
+  let sumEvenElement = 0;
+  let countEvenElement = 0;
+  for (let num of arr) {
+    if (num % 2 === 0) {
+      sumEvenElement += num;
+      countEvenElement++;
+    }
+  }
+  return countEvenElement === 0 ? 0 : sumEvenElement / countEvenElement;
 }
 
-function makeWork (arrOfArr, func) {
-
-}
