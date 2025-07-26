@@ -66,19 +66,19 @@ class DetectiveBook extends Book {
 //2
 class Library {
   constructor(name) {
-    this.name = name;     // Название библиотеки
-    this.books = [];      // Хранилище книг (изначально пустой массив)
+    this.name = name;     
+    this.books = [];    
   }
 
   addBook(book) {
-    // Добавляем книгу только если её состояние > 30
+    // добавка книги только если её состояние > 30
     if (book.state > 30) {
       this.books.push(book);
     }
   }
 
   findBookBy(type, value) {
-    // Ищем книгу по ключу (например, "name") и значению
+    // поиск книги по ключу  и значению
     for (const book of this.books) {
       if (book[type] === value) {
         return book;
@@ -88,18 +88,17 @@ class Library {
   }
 
   giveBookByName(bookName) {
-    // Ищем книгу по названию
     const index = this.books.findIndex((book) => book.name === bookName);
 
     if (index !== -1) {
-      // Удаляем книгу из массива и возвращаем её
       const book = this.books.splice(index, 1)[0];
       return book;
     }
 
-    return null; // Если книга не найдена
+    return null; 
   }
 }
+module.exports = Library;
 
 //3
 class Student {
