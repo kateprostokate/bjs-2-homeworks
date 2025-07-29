@@ -71,14 +71,12 @@ class Library {
   }
 
   addBook(book) {
-    // добавка книги только если её состояние > 30
     if (book.state > 30) {
       this.books.push(book);
     }
   }
 
   findBookBy(type, value) {
-    // поиск книги по ключу  и значению
     for (const book of this.books) {
       if (book[type] === value) {
         return book;
@@ -98,13 +96,14 @@ class Library {
     return null; 
   }
 }
-module.exports = Library;
+
+export default Library;
 
 //3
 class Student {
   constructor(name) {
     this.name = name;
-    this.marks = {}; // объект вида { "математика": [5, 4], "физика": [3] }
+    this.marks = {}; 
   }
 
   addMark(mark, subject) {
@@ -142,3 +141,5 @@ class Student {
     return total / subjects.length;
   }
 }
+
+export { Student };
